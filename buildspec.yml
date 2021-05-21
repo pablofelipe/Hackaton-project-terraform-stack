@@ -12,8 +12,10 @@ phases:
       - REPOSITORY_URI="$ECR_ADDRESS"
       - mkdir .aws
       - chmod 777 .aws
-      - mkdir .aws && aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.aws/credentials .aws/ && aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.aws/config .aws/
-      - mkdir .ssh && aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.ssh/fiap-lab.pem .ssh/ 
+      - mkdir .ssh
+      - chmod 777 .ssh
+      - aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.aws/credentials .aws/ && aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.aws/config .aws/
+      - aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.ssh/fiap-lab.pem .ssh/ 
   pre_build:
     commands:
       - login=$(aws ecr get-login --region=us-east-1)
