@@ -14,8 +14,9 @@ phases:
       - chmod 777 .aws
       - mkdir .ssh
       - chmod 777 .ssh
-      - cp s3://hackathon-fiap-5dvp-337343/instance-need/.aws/credentials .aws/ && aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.aws/config .aws/
-      - cp s3://hackathon-fiap-5dvp-337343/instance-need/.ssh/fiap-lab.pem .ssh/ 
+      - aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.aws/config .aws
+      - aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.aws/credentials .aws 
+      - aws s3 cp s3://hackathon-fiap-5dvp-337343/instance-need/.ssh/fiap-lab.pem .ssh
   pre_build:
     commands:
       - login=$(aws ecr get-login --region=us-east-1)
